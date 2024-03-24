@@ -97,6 +97,8 @@
         </table><!-- end table -->
     </div>
 </div>
+{{ $property->links() }}
+
 </div>
 </div>  
 @endsection

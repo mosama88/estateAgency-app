@@ -19,7 +19,7 @@
 
 
 <div class="text-center coming-soon-search-form pt-2">
-    <form action="{{ route('dashboard.search-department') }}" method="GET">
+    <form action="{{ route('dashboard.search-user') }}" method="GET">
         <input type="text" name="search" placeholder="إبحث عن موظف....">
         <button type="submit" class="btn btn-primary">Search</button>
     </form>
@@ -84,6 +84,7 @@
         </table><!-- end table -->
     </div>
 </div>
+{{ $user->links() }}
 </div>
 </div>  
 @endsection

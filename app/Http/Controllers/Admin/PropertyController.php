@@ -183,7 +183,7 @@ class PropertyController extends Controller
             $query->where('name', 'like', "%$search%");
         })->orWhereHas('user', function($query) use ($search){
             $query->where('name', 'like', "%$search%");
-        })->get();
+        })->paginate(5);
         return view('dashboard.properties.search', compact('search','property'));
     }
 

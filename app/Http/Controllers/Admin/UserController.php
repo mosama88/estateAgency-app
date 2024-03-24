@@ -44,7 +44,7 @@ class UserController extends Controller
             'password'=> 'required|string|min:5| max:50',
             'phone'=> 'required| min:8|string|max:20',
             'type' => 'required|in:admin,user',
-            'image' => 'required|image|mimes:jpg,png,jpeg',
+            'image' => 'required|image|mimes:jpg,png,jpeg,webp',
             'department_id'=> 'required|exists:departments,id',
         ],[
             'name.required'=>'حقل الاسم مطلوب.',
@@ -59,7 +59,6 @@ class UserController extends Controller
             'phone.required'=>'حقل الموبايل مطلوب.',
             'phone.min'=>'يجب أن يتكون حقل الموبايل من8 أحرف على الأقل.',
             'phone.max'=>'يجب ألا يزيد حقل الموبايل عن 20 حرفًا.',
-            'image'=> 'required|image| mimes:jpg,png,gif,jpeg,webp',
             'department_id.required'=>'حقل القسم مطلوب.',
         ]);
         
@@ -149,4 +148,17 @@ class UserController extends Controller
          // Return a response indicating success
         return back()->with('success', 'تم حذف الموظف بنجاح');
     }
+
+    public function search(Request $request){
+        $search = $request->search;
+        $user = User::where(function($query) use ($search){
+            $query->where('name', 'like', "%$search%")->orwhere('type', 'like', "%$search%");
+        })
+        ->orWhereHas('department', function($query) use ($search){
+            $query->where('name', 'like', "%$search%");
+        })
+        ->paginate(5);
+        return view('dashboard.users.search', compact('search','user'));
+    }
+
 }
