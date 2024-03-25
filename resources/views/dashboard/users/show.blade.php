@@ -29,14 +29,15 @@
 
                     </div>
                 </div>
+                    
                 <div class="mt-n4 position-relative">
                     <div class="text-center">
-                        <img src="{{ asset('dashboard') }}/assets/images/users/avatar-1.jpg" alt="" class="avatar-xl rounded-circle img-thumbnail">
+                        <img src="{{ $user ->image() }}" alt="" class="avatar-xl rounded-circle img-thumbnail">
 
                         <div class="mt-3">
-                            <h5 class="">Kat Macaulay</h5>
+                            <h5 class="">{{ $user ->name }}</h5>
                             <div>
-                                <a href="#" class="text-muted m-1">Project Manager</a>
+                                <a href="#" class="text-muted m-1">{{ $user ->department->name }}</a>
                             </div>
 
                             <div class="mt-4">

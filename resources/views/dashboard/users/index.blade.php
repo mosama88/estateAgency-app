@@ -67,7 +67,7 @@
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->phone }}</td>
                         <td>
-                            <img src="{{ $user->image() }}" style="width: 100px; height:80px;" alt="">
+                            <img class="rounded-circle avatar-md" src="{{ $user->image() }}" style="width: 100px; height:80px;" alt="">
                         </td>
                         <td>{{ $user->type }}</td>
                         <td>{{ $user->department->name }}</td>
