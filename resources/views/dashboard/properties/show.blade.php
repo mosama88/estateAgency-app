@@ -19,21 +19,21 @@
             <div id="carouselExampleCaption" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item">
-                        <img src="{{ asset('public/' . $property->image_1) }}" style="width:1500px; height:500px;"  alt="..." class="d-block img-fluid">
+                        <img src="{{ $property->image_1() }}" style="width:2000px; height:500px;"  alt="..." class="d-block img-fluid">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>فرص بلا حدود</h5>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ asset('public/' . $property->image_2) }}" style="width:1500px; height:500px;" alt="..." class="d-block img-fluid">
+                        <img src="{{ $property->image_2() }}" style="width: 2000px; height: 500px;" alt="..." class="d-block img-fluid">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>راحتك معانا</h5>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                         </div>
                     </div>
                     <div class="carousel-item active">
-                        <img src="{{ asset('public/' . $property->image_3) }}" style="width:1500px; height:500px;" alt="..." class="d-block img-fluid">
+                        <img src="{{ $property->image_3() }}" style="width:2000px; height:500px;" alt="..." class="d-block img-fluid">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>كل المميزات هتلاقيها هنا</h5>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>

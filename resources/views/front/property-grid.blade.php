@@ -51,7 +51,7 @@
           <div class="col-md-4">
             <div class="card-box-a card-shadow">
               <div class="img-box-a">
-                <img src="{{ asset('public/' . $property->image_1) }}" style= "width:600px; height:400px" alt="" class="img-a img-fluid">
+                <img src="{{ $property->image_1() }}" style= "width:600px; height:400px" alt="" class="img-a img-fluid">
               </div>
               <div class="card-overlay" dir="rtl">
                 <div class="card-overlay-a-content">

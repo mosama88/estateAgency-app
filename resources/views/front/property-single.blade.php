@@ -46,13 +46,13 @@
             <div id="property-single-carousel" class="swiper">
               <div class="swiper-wrapper">
                 <div class="carousel-item-b swiper-slide">
-                  <img src="{{asset('public/' . $property->image_1)}}" style= "width:700px; height:500px" alt="">
+                  <img src="{{ $property->image_1() }}" style= "width:700px; height:500px" alt="">
                 </div>
                 <div class="carousel-item-b swiper-slide">
-                  <img src="{{asset('public/' . $property->image_2)}}" style= "width:700px; height:500px" alt="">
+                  <img src="{{ $property->image_2() }}" style= "width:700px; height:500px" alt="">
                 </div>
                 <div class="carousel-item-b swiper-slide">
-                  <img src="{{asset('public/' . $property->image_3)}}" style= "width:700px; height:500px" alt="">
+                  <img src="{{ $property->image_3() }}" style= "width:700px; height:500px" alt="">
                 </div>
               </div>
             </div>

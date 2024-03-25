@@ -49,7 +49,7 @@ Route::name('dashboard.')->middleware('auth')->group(function () {
     Route::resource('/projects', ProjectController::class);
     Route::resource('/users', UserController::class);
     Route::get('search-user', [UserController::class,'search'])->name('search-user');
-    Route::resource('/property', PropertyAdmin::class);
+    Route::resource('/propertyAdmin', PropertyAdmin::class);
     Route::get('search-property', [PropertyAdmin::class,'search'])->name('search-property');
     Route::resource('/settings', SettingController::class);
     Route::resource('/contact', ContactAdmin::class);

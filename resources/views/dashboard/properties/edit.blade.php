@@ -18,7 +18,7 @@
             <div class="card-body">
                 <blockquote class="card-blockquote mb-0">
                 </blockquote>
-                <form action="{{route('dashboard.property.update' , $property->id)}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('dashboard.propertyAdmin.update' , $property->id)}}" method="POST" enctype="multipart/form-data">
                    @csrf
                    @method('PUT')
 
@@ -138,7 +138,7 @@
                <div class=" col-4">
                    <label class="form-label" for="resume">صورة 1</label>
                <input type="file" name="image_1" value="{{ $property->image_1 }}" class="form-control" id="resume">
-               <img class="my-2" src="{{asset( 'public/' . $property->image_1 )}}" style="width: 100px; height:80px;" alt="">
+               <img class="my-2" src="{{$property->image_1()}}" style="width: 100px; height:80px;" alt="">
 
            @error('image_1')
                <div class="alert alert-danger">{{ $message }}</div>
@@ -148,7 +148,7 @@
                <div class=" col-4">
                    <label class="form-label" for="resume">صورة 2</label>
                <input type="file" name="image_2" value="{{ $property->image_2 }}" class="form-control" id="resume">
-               <img class="my-2" src="{{asset( 'public/' . $property->image_2 )}}" style="width: 100px; height:80px;" alt="">
+               <img class="my-2" src="{{$property->image_2()}}" style="width: 100px; height:80px;" alt="">
 
            @error('image_2')
                <div class="alert alert-danger">{{ $message }}</div>
@@ -158,7 +158,7 @@
                <div class=" col-4">
                    <label class="form-label" for="resume">صورة 3</label>
                <input type="file" name="image_3" value="{{ $property->image_3 }}"  class="form-control" id="resume">
-               <img class="my-2" src="{{asset( 'public/' . $property->image_3 )}}" style="width: 100px; height:80px;" alt="">
+               <img class="my-2" src="{{$property->image_3()}}" style="width: 100px; height:80px;" alt="">
                @error('image_3')
                <div class="alert alert-danger">{{ $message }}</div>
            @enderror
@@ -243,7 +243,7 @@
 
                <div class="col-12">
                    <input class="btn btn-primary" type="submit" value="تعديل">
-                   <a class="btn btn-primary" href="{{ route('dashboard.property.index') }}">الرجوع الى صفحة الوحدات</a>
+                   <a class="btn btn-primary" href="{{ route('dashboard.propertyAdmin.index') }}">الرجوع الى صفحة الوحدات</a>
                </div>
            </form>
 

@@ -17,7 +17,7 @@
             <div class="card-body">
                 <blockquote class="card-blockquote mb-0">
                 </blockquote>
-                <form action="{{ route('dashboard.property.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('dashboard.propertyAdmin.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
 
@@ -233,7 +233,7 @@
 
                     <div class="col-12">
                         <input class="btn btn-primary" type="submit" value="أضف">
-                        <a class="btn btn-primary" href="{{ route('dashboard.property.index') }}">الرجوع الى صفحة الوحدات</a>
+                        <a class="btn btn-primary" href="{{ route('dashboard.propertyAdmin.index') }}">الرجوع الى صفحة الوحدات</a>
                     </div>
                 </form>
 

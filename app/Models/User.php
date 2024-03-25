@@ -66,7 +66,7 @@ class User extends Authenticatable
 
     public function image(){
         if($this->image){
-            return asset('public/' . $this->image);
+            return asset($this->image);
         }
         return asset("defaultuser.png");
 }

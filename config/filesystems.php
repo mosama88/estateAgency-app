@@ -44,7 +44,7 @@ return [
             'throw' => false,
         ],
 
-        'user' => [
+        'userImage' => [
             'driver' => 'local',
             'root' => storage_path('app/userImage'),
             'url' => env('APP_URL').'/userImage',
@@ -88,8 +88,8 @@ return [
     'links' => [
         //For Public Folder                             //For storage Folder
         public_path('public') => storage_path('app/public'),
-        public_path('public/userImage') => storage_path('app/userImage'),
-        public_path('public/property') => storage_path('app/property'),
+        public_path('userImage') => storage_path('app/userImage'),
+        public_path('property') => storage_path('app/property'),
     ],
 
 ];

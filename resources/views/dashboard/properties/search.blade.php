@@ -9,7 +9,7 @@
 @endsection
 
 @section('buttonTitle')
-<a href="{{ route('dashboard.property.create') }}" class="btn btn-primary  dropdown-toggle" type="button" id="dropdownMenuButton" aria-expanded="false">
+<a href="{{ route('dashboard.propertyAdmin.create') }}" class="btn btn-primary  dropdown-toggle" type="button" id="dropdownMenuButton" aria-expanded="false">
     <i class="fas fa-plus me-2"></i> أضافة وحده
 </a>
 @endsection
@@ -75,13 +75,13 @@
                 <td>{{ $properties->project->name }}</td>
                 <td>{{ $properties->user->name }}</td>
                 <td>
-                    <a href="{{ route('dashboard.property.show', $properties->id) }}" class="btn btn-info waves-effect waves-light">عرض</a>
+                    <a href="{{ route('dashboard.propertyAdmin.show', $properties->id) }}" class="btn btn-info waves-effect waves-light">عرض</a>
                 </td>
                 <td>
-                    <a href="{{ route('dashboard.property.edit', $properties->id) }}" class="btn btn-success waves-effect waves-light">تعديل</a>
+                    <a href="{{ route('dashboard.propertyAdmin.edit', $properties->id) }}" class="btn btn-success waves-effect waves-light">تعديل</a>
                 </td>
                 <td>
-                    <form action="{{ route('dashboard.property.destroy', $properties->id) }}" method="POST">
+                    <form action="{{ route('dashboard.propertyAdmin.destroy', $properties->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <input class="btn btn-danger" value="حذف" type="submit">

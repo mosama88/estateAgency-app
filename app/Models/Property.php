@@ -42,4 +42,23 @@ class Property extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function image_1(){
+        if($this->image_1){
+            return asset($this->image_1);
+        }
+        return asset("defaultproperty.png");
+}
+public function image_2(){
+    if($this->image_2){
+        return asset($this->image_2);
+    }
+    return asset("defaultproperty.png");
+}
+public function image_3(){
+    if($this->image_3){
+        return asset($this->image_3);
+    }
+    return asset("defaultproperty.png");
+}
+
 }

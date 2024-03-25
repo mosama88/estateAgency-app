@@ -83,7 +83,7 @@ class PropertyController extends Controller
         $data['image_2'] = $image_2_name;
         $data['image_3'] = $image_3_name;
         Property::create($data);
-        return redirect('property')->with('success', 'تم أضافة الوحده بنجاح');
+        return redirect('propertyAdmin')->with('success', 'تم أضافة الوحده بنجاح');
     }
 
     /**
@@ -157,7 +157,7 @@ class PropertyController extends Controller
 
 
         Property::where('id', $property->id)->update($data);
-        return redirect('property')->with('success', 'تم تعديل بيانات الوحده بنجاح');
+        return redirect('propertyAdmin')->with('success', 'تم تعديل بيانات الوحده بنجاح');
     }
 
     /**

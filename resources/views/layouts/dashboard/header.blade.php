@@ -357,7 +357,7 @@
                             </li>
 
                             <li>
-                                <a href="{{ route('dashboard.property.index') }}" class="waves-effect">
+                                <a href="{{ route('dashboard.propertyAdmin.index') }}" class="waves-effect">
                                     <i class="fas fa-building"></i>
                                      <span>الوحدات</span>
                                 </a>
