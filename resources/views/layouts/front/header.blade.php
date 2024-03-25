@@ -26,6 +26,8 @@
   <link href="{{ asset('front') }}/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="{{ asset('front') }}/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
+  
+  <link href="{{ asset('front') }}/assets/css/bootstrap.rtl.css" rel="stylesheet">
   <!-- Template Main CSS File -->
   <link href="{{ asset('front') }}/assets/css/style.css" rel="stylesheet">
 

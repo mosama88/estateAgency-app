@@ -121,7 +121,7 @@
               </div>
               <div class="card-footer-c">
                 <a href="#" class="link-c link-icon">أقرا المزيد...
-                  <span class="bi bi-chevron-right"></span>
+                  <span class="bi bi-chevron-left"></span>
                 </a>
               </div>
             </div>
@@ -186,7 +186,7 @@
               </div>
               <div class="title-link">
                 <a href="{{ route('front.properties.index') }}">كل الوحدات
-                  <span class="bi bi-chevron-right"></span>
+                  <span class="bi bi-chevron-left"></span>
                 </a>
               </div>
             </div>
@@ -411,7 +411,7 @@
               </div>
               <div class="title-link">
                 <a href="agents-grid.html">كل العملاء
-                  <span class="bi bi-chevron-right"></span>
+                  <span class="bi bi-chevron-left"></span>
                 </a>
               </div>
             </div>
@@ -601,7 +601,7 @@
               </div>
               <div class="title-link">
                 <a href="blog-grid.html">كل المشاريع الحالية
-                  <span class="bi bi-chevron-right"></span>
+                  <span class="bi bi-chevron-left"></span>
                 </a>
               </div>
             </div>

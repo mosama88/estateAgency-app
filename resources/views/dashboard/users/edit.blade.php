@@ -48,7 +48,7 @@ href="{{ route('dashboard.users.index') }}"@extends('layouts.dashboard.app')
                 <div class=" mb-3">
                     <label for="example-text-input" class="col-sm-5 col-form-label">كلمة المرور</label>
                     <div class="col-sm-12">
-                        <input class="form-control" type="password" name="password" value="{{ $users->password }}" placeholder="كلمة المرور" {{ old('password') }} id="example-text-input">
+                        <input class="form-control" type="password" name="password"  placeholder="كلمة المرور" id="example-text-input" disabled>
 
                         @error('password')
                             <div class="alert alert-danger">{{ $message }}</div>

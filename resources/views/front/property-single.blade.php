@@ -135,11 +135,7 @@
                   <p class="description color-text-a">
                     {{ $property->details }}
                   </p>
-                  <p class="description color-text-a no-margin">
-                    Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Donec rutrum congue leo eget
-                    malesuada. Quisque velit nisi,
-                    pretium ut lacinia in, elementum id enim. Donec sollicitudin molestie malesuada.
-                  </p>
+                  
                 </div>
                 <div class="row section-t3">
                   <div class="col-sm-12">
@@ -198,7 +194,7 @@
             </div>
             <div class="row">
               <div class="col-md-6 col-lg-4">
-                <img src="{{asset('front')}}/assets/img/agent-4.jpg" alt="" class="img-fluid">
+                <img src="{{$property->user->image()}}" alt="" class="img-fluid">
               </div>
               <div class="col-md-6 col-lg-4">
                 <div class="property-agent">

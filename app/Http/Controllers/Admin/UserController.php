@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Validator;
+
 class UserController extends Controller
 {
     /**
@@ -101,7 +103,6 @@ class UserController extends Controller
         $data = $request->validate([
             'name'=> 'required|string| min:3| max:50',
             'email' => 'required|email|min:3|'.Rule::unique('users')->ignore($users->id) ,
-            'password'=> 'required|string|min:5| max:50',
             'phone'=> 'required| min:8|string|max:20',
             'type' => 'required|in:admin,user',
             'department_id'=> 'required|exists:departments,id',
@@ -111,9 +112,6 @@ class UserController extends Controller
             'name.max'=>'يجب ألا يزيد حقل الاسم عن 50 حرفًا.',
             'email.min'=>'يجب أن يتكون حقل البريد الالكترونى من 5 أحرف على الأقل.',
             'email.max'=>'يجب ألا يزيد حقل البريد الالكترونى عن 50 حرفًا.',
-            'password.required'=>'حقل كلمة المرور مطلوب.',
-            'password.min'=>'يجب أن يتكون حقل كلمة المرور من 5 أحرف على الأقل.',
-            'password.max'=>'يجب ألا يزيد حقل كلمة المرور عن 50 حرفًا.',
             'phone.required'=>'حقل الموبايل مطلوب.',
             'phone.min'=>'يجب أن يتكون حقل الموبايل من8 أحرف على الأقل.',
             'phone.max'=>'يجب ألا يزيد حقل الموبايل عن 20 حرفًا.',
@@ -128,14 +126,25 @@ class UserController extends Controller
             $users->save();
         }
 
+    // Check if password is being updated
+    if ($request->has('password')) {
+        // If password field is present, add validation rule for password
+        $validator = Validator::make($request->all(), [
+            'password' => 'required|string|min:8|confirmed',
+        ]);
 
-
-
-
+        // Check if password validation fails
+        if ($validator->fails()) {
+            return redirect()->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+    }
         User::where('id', $users->id)->update($data);
         return redirect('users')->with('success', 'تم تعديل بيانات الموظف بنجاح');
-    }
-
+    
+    
+}
     /**
      * Remove the specified resource from storage.
      */
