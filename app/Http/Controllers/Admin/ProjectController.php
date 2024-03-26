@@ -7,6 +7,8 @@ use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
+
 
 class ProjectController extends Controller
 {
@@ -35,7 +37,7 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name'=> 'required| min:2| max:50| unique:projects,name',
+            'name'=> 'required| min:2| max:100',
             'location'=> 'required| min:5| max:50',
             'title'=> 'required|string|min:10|max:500',
             'description'=> 'required|string|min:10|max:2000',
@@ -45,7 +47,7 @@ class ProjectController extends Controller
         ],[
             'name.required'=>'حقل الاسم مطلوب.',
             'name.min'=>'يجب أن يتكون حقل الاسم من 3 أحرف على الأقل.',
-            'name.max'=>'يجب ألا يزيد حقل الاسم عن 50 حرفًا.',
+            'name.max'=>'يجب ألا يزيد حقل الاسم عن 100 حرفًا.',
             'location.required'=>'حقل الموقع مطلوب.',
             'location.min'=>'يجب أن يتكون حقل الموقع من 3 أحرف على الأقل.',
             'location.max'=>'يجب ألا يزيد حقل الموقع عن 50 حرفًا.',
@@ -83,17 +85,29 @@ class ProjectController extends Controller
     {
         $projects = Project::findOrFail($id);
         $data = $request->validate([
-            'name' => 'required|string|min:3|'.Rule::unique('projects')->ignore($projects->id) ,
+            'name'=> 'required| min:2| max:100',
             'location'=> 'required| min:5| max:50',
+            'title'=> 'required|string|min:10|max:500',
+            'description'=> 'required|string|min:10|max:2000',
             'user_id'=> 'required|exists:users,id',
         ],[
             'name.required'=>'حقل الاسم مطلوب.',
             'name.min'=>'يجب أن يتكون حقل الاسم من 3 أحرف على الأقل.',
-            'name.max'=>'يجب ألا يزيد حقل الاسم عن 50 حرفًا.',
+            'name.max'=>'يجب ألا يزيد حقل الاسم عن 100 حرفًا.',
             'location.required'=>'حقل الموقع مطلوب.',
             'location.min'=>'يجب أن يتكون حقل الموقع من 3 أحرف على الأقل.',
             'location.max'=>'يجب ألا يزيد حقل الموقع عن 50 حرفًا.',
         ]);
+
+        $projects->image = $request->image;
+
+        $old_image = $projects->image;
+        if($request->hasFile('image')){
+            $imageName = $request->file('image')->store('project');
+            File::delete($old_image);
+            $projects->image = $imageName;
+            $projects->save();
+        }
 
 
         Project::where('id', $projects->id)->update($data);

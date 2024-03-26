@@ -35,6 +35,9 @@
                         <th>#</th>
                         <th>أسم المشروع</th>
                         <th>عنوان الموقع</th>
+                        <th>عنوان</th>
+                        <th>التفاصيل</th>
+                        <th>الصورة</th>
                         <th>موظف المبيعات</th>
                         <th>تعديل</th>
                         <th>حذف</th>
@@ -47,6 +50,11 @@
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $project->name }}</td>
                         <td>{{ $project->location }}</td>
+                        <td>{{Str::limit( $project->title, 20) }}</td>
+                        <td> {{Str::limit( $project->description, 20) }}</td>
+                        <td>
+                          <img src="{{ $project->image() }}" style="width: 100px; hieght:100px;" alt="">  
+                        </td>
                         <td>{{ $project->user->name }}</td>
                         <td>
                             <a href="{{ route('dashboard.projects.edit', $project->id) }}" class="btn btn-success waves-effect waves-light">تعديل</a>
