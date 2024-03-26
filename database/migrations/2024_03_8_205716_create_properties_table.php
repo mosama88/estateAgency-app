@@ -28,8 +28,8 @@ return new class extends Migration
             $table->text('address');
             $table->enum('type', ['villa', 'Apartment'])->default('Apartment')->nullable();
             $table->enum('status', ['sell', 'rent'])->default('sell')->nullable();
-            $table->foreignId('project_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('project_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

@@ -117,14 +117,25 @@ class UserController extends Controller
             'phone.max'=>'يجب ألا يزيد حقل الموبايل عن 20 حرفًا.',
             'department_id.required'=>'حقل القسم مطلوب.',
         ]);
-        $old_image = $users->image;
 
+
+
+        $users->image = $request->image;
+        $old_image = $users->image;
         if($request->hasFile('image')){
             $new_image = $request->file('image')->store('userImage');
             File::delete($old_image);
             $users->image = $new_image;
             $users->save();
         }
+
+        
+
+
+
+
+
+
 
     // Check if password is being updated
     if ($request->has('password')) {
