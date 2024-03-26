@@ -37,6 +37,9 @@ class ProjectController extends Controller
         $data = $request->validate([
             'name'=> 'required| min:2| max:50| unique:projects,name',
             'location'=> 'required| min:5| max:50',
+            'title'=> 'required|string|min:10|max:500',
+            'description'=> 'required|string|min:10|max:2000',
+            'image'=> 'required|image|mimes:jpg,jpeg,png,webp',
             'user_id'=> 'required|exists:users,id',
 
         ],[
@@ -48,7 +51,8 @@ class ProjectController extends Controller
             'location.max'=>'يجب ألا يزيد حقل الموقع عن 50 حرفًا.',
         ]);
 
-
+        $imageName  = $request->file('image')->store('project');
+        $data['image'] = $imageName;
         Project::create($data);
         return redirect('projects')->with('success', 'تم أضافة المشروع بنجاح');
     }

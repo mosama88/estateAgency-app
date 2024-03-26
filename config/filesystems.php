@@ -60,6 +60,14 @@ return [
             'throw' => false,
         ],
 
+        'project' => [
+            'driver' => 'local',
+            'root' => storage_path('app/project'),
+            'url' => env('APP_URL').'/project',
+            'visibility' => 'project',
+            'throw' => false,
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
@@ -90,6 +98,7 @@ return [
         public_path('public') => storage_path('app/public'),
         public_path('userImage') => storage_path('app/userImage'),
         public_path('property') => storage_path('app/property'),
+        public_path('project') => storage_path('app/project'),
     ],
 
 ];

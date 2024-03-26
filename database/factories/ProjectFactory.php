@@ -19,11 +19,16 @@ class ProjectFactory extends Factory
         return [
             'name' => fake()->sentence($nbWords = 2, $variableNbWords = true),
             'location' => fake()->address(),
+            'title' => fake()->sentence(),
+            'description' => fake()->paragraph(3),
+            'image' => fake()->image(),
             'user_id' =>\App\Models\User::factory()->create()->id,
 
 
         ];
     }
 }
+
+
 
 

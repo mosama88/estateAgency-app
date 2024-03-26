@@ -70,7 +70,7 @@
           </li>
 
           <li class="nav-item {{request()->is('current-projects')? 'active' : ''}}">
-            <a class="nav-link" href="{{ route('front.current-projects') }}">المشروعات الحاليه</a>
+            <a class="nav-link" href="{{ route('front.projecting.index') }}">المشروعات الحاليه</a>
           </li>
 
 

@@ -11,6 +11,9 @@ class Project extends Model
 
     protected $fillable = [
         'name',
+        'title',
+        'description',
+        'image',
         'location',
         'user_id',
     ];
@@ -25,4 +28,13 @@ class Project extends Model
         return $this->hasMany(Property::class);
     }
 
+    public function image(){
+        if($this->image){
+            return asset($this->image);
+        }
+        return asset("defaultproject.png");
+    }
+
 }
+
+

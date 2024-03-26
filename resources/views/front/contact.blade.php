@@ -49,7 +49,7 @@
           <div class="col-sm-12 section-t8">
               <div class="row" dir="rtl">
                   <div class="col-md-7">
-                      <form action="{{ route('front.contacts.store') }}" method="POST" >
+                      <form action="{{ route('front.sendMessage') }}" method="POST" >
                         @csrf
                         @if(session('success')!=null)
                             <h4 class="alert alert-success text-center">

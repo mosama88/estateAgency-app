@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\DepartmentController;
+use App\Http\Controllers\front\ProjectController as ProjectFront;
 use App\Http\Controllers\front\ContactController;
 use App\Http\Controllers\front\PropertyController;
 use App\Http\Controllers\front\CurrentProjectsController;
@@ -34,13 +35,16 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::name('front.')->group(function () {
     Route::resource('contacts', ContactController::class);
+    Route::post('sendMessage', [ContactController::class,'sendMessage'])->name('sendMessage');
     Route::resource('setting', SettingFront::class);
     Route::get('abouts', [ContactController::class, 'about'])->name('abouts');
     Route::get('login', [ContactController::class, 'login'])->name('login');
     Route::get('previous-projects', [PreviousProjectsController::class, 'index'])->name('previous-projects');
-    Route::get('current-projects', [CurrentProjectsController::class, 'index'])->name('current-projects');
     Route::get('current-search', [PropertyController::class, 'search'])->name('current-search');
     Route::resource('properties',PropertyController::class);
+    Route::resource('projecting',ProjectFront::class);
+
+    
 });
 Route::name('dashboard.')->middleware('auth')->group(function () {  
     Route::resource('/admin', HomeAdmin::class);
